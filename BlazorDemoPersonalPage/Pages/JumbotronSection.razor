@@ -1,0 +1,52 @@
+﻿<section class="jumbotron-fluid" style="background: url('@ImageUrl'); background-size: cover; min-height: 100vh; ">
+    <div class="container">
+        <div class="row">
+            <div class="@_isLeftClasses">
+                <h1>This is me then!</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    /// <summary>
+    /// The image to be in the background of the JumbotronSection component
+    /// </summary>
+    [Parameter]
+    public string ImageUrl { get; set; }
+
+    /// <summary>
+    /// Main text that will be in heading and in strong font
+    /// </summary>
+    [Parameter]
+    public string MainText { get; set; }
+
+    /// <summary>
+    /// Sub text that will be in normal text
+    /// </summary>
+    [Parameter]
+    public string SubText { get; set; }
+
+    /// <summary>
+    /// If set to true, the MainText will be in H1 tag, otherwise in H2
+    /// </summary>
+    [Parameter]
+    public bool IsHeadingOne { get; set; } = false;
+
+    /// <summary>
+    /// MainText and SubText will be generated accross 50% of the page so that the image from the other side can be seen.
+    /// If IsLeft == true it will be generated on the left, otherwise on the right!
+    /// </summary>
+    [Parameter]
+    public bool IsLeft { get; set; } = true;
+
+    /// <summary>
+    /// Each JumbotronSection component has a call to action button - this will be the text in that button
+    /// </summary>
+    [Parameter]
+    public string CallToActionText { get; set; }
+
+
+
+    private string _isLeftClasses = "col-md-6";
+}
