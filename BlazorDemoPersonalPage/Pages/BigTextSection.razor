@@ -1,0 +1,17 @@
+﻿<section class="container-fluid" style="background-color: @BackgroundColor;">
+    <div class="container">
+        <h2>@BigText</h2>
+        @ChildContent
+    </div>
+</section>
+
+@code {
+    [Parameter]
+    public string BigText { get; set; }
+
+    [Parameter]
+    public string BackgroundColor { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

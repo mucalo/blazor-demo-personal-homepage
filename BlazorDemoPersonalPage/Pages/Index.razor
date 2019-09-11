@@ -1,8 +1,31 @@
-﻿@page "/"
+﻿@using Services;
+@using Models
+@inject IProjectService  _projectService;
+@page "/"
 
 <JumbotronSection IsHeadingOne="true"
                   IsLeft="false"
-                  CallToActionText="Reach out!"
+                  CallToActionText="Let's work together!"
                   MainText="Hello, I am Mario!"
                   SubText="Full stack developer with 10+ years of experience wokrking with .NET Core, Angular, and recently - Blazor!"
                   ImageUrl="/img/Headshot.jpg" />
+
+<BigTextSection BigText="Check out some of my work" BackgroundColor="#fe4a49">
+    <ul>
+        @foreach (var project in projects)
+        {
+            <li><strong>@project.ProjectTitle</strong> - @project.ProjectDescription</li>
+        }
+    </ul>
+</BigTextSection>
+
+
+
+@code {
+
+    private List<Project> projects;
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await _projectService.GetProjects();
+    }
+}
