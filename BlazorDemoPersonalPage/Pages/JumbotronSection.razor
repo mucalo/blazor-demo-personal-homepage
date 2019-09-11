@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="@_isLeftClasses">
-                <h1>This is me then!</h1>
+                <h1>@MainText</h1>
+                <p>@SubText</p>
+                <button class="btn btn-primary btn-lg" @onclick="@scrollToContact">@CallToActionText</button>
             </div>
         </div>
     </div>
@@ -49,4 +51,21 @@
 
 
     private string _isLeftClasses = "col-md-6";
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IsLeft)
+        {
+            _isLeftClasses = "col-md-6";
+        }
+        else
+        {
+            _isLeftClasses = "offset-md-6 col-md-6";
+        }
+    }
+
+    private void scrollToContact()
+    {
+        // Insert scrolling method here
+    }
 }

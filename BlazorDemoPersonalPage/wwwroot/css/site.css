@@ -111,6 +111,19 @@ app {
     color: red;
 }
 
+section {
+    min-height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+
+
+
+
 @media (max-width: 767.98px) {
     .main .top-row {
         display: none;
