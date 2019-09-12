@@ -8,6 +8,37 @@ namespace BlazorDemoPersonalPage.Services
 {
     public class ProjectService : IProjectService
     {
+        public async Task<List<Article>> GetArticles()
+        {
+            var articles = new List<Article>();
+            articles.Add(new Article
+            {
+                Title = "Building an one page website with server side Blazor",
+                Link = "https://www.toptal.com/blog",
+                Platform = "Toptal Engineering Blog"
+            });
+            articles.Add(new Article
+            {
+                Title = "Processes over Tools",
+                Link = "https://www.linkedin.com/pulse/processes-over-tools-mario-mucalo/",
+                Platform = "LinkedIn Articles"
+            });
+            articles.Add(new Article
+            {
+                Title = "Development blog",
+                Link = "https://mariomucalo.com",
+                Platform = "mariomucalo.com"
+            });
+            articles.Add(new Article
+            {
+                Title = "It only takes a minute to send minutes",
+                Link = "https://steemit.com/remote/@mmucalo/it-only-takes-a-minute-to-send-minutes",
+                Platform = "SteemIt"
+            });
+
+            return await Task.FromResult(articles);
+        }
+
         public async Task<List<Project>> GetProjects()
         {
             var projects = new List<Project>();
@@ -39,6 +70,46 @@ namespace BlazorDemoPersonalPage.Services
             });
 
             return await Task.FromResult(projects);
+        }
+
+        public async Task<List<Talk>> GetTalks()
+        {
+            var talks = new List<Talk>();
+
+            talks.Add(new Talk
+            {
+                Event = "WebCamp",
+                Title = "Debugging communication",
+                Year = 2017,
+                City = "Zagreb",
+                Link = "https://2017.webcampzg.org/talks/debugging-communication/"
+            });
+            talks.Add(new Talk
+            {
+                Event = "Advanced Technology Days #13",
+                City = "Zagreb",
+                Year = 2017,
+                Title = "Perception in remote environments",
+                Link = "https://www.intellegens.hr/Home/Articles/MarioMucaloSpokeAtAdvancedTechnologyDays13"
+            });
+            talks.Add(new Talk
+            {
+                Event = "Remote Future Summit",
+                Title = "Debugging communication",
+                Year = 2018,
+                City = "Online event",
+                Link = "https://www.intellegens.hr/Home/Articles/MarioMucaloGaveTalkOnRemoteCommunicationAtRemoteFutureSummit"
+            });
+            talks.Add(new Talk
+            {
+                Event = "Toptal Coworking Day + Tech Talks",
+                City = "Banja Luka",
+                Year = 2019,
+                Title = "Communication in remote environments - how not to get into trouble!",
+                Link = "https://www.toptal.com/community/events/2019-06-27/toptal-coworking-day-tech-talks-banja-luka"
+            });
+
+            return await Task.FromResult(talks);
         }
     }
 }

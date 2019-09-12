@@ -1,0 +1,23 @@
+﻿@using BlazorDemoPersonalPage.Models
+
+<div class="col-md-4">
+    <h3>@Project.ProjectTitle</h3>
+    <h4>@Project.Client</h4>
+    <img src="@Project.Image" alt="@Project.ProjectTitle @Project.Client" />
+    <p>@Project.ProjectDescription</p>
+    @if(!String.IsNullOrEmpty(Project.Link))
+    {
+        <a href="@Project.Link" target="_blank">Check it out!</a>
+    }
+    <p class="technologies">
+        @foreach (var tech in Project.Technologies)
+        {
+            <span>@tech</span>
+        }
+    </p>
+</div>
+
+@code {
+    [Parameter]
+    public Project Project { get; set; }
+}

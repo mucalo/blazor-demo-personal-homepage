@@ -11,21 +11,66 @@
                   ImageUrl="/img/Headshot.jpg" />
 
 <BigTextSection BigText="Check out some of my work" BackgroundColor="#fe4a49">
-    <ul>
+    <div class="row">
         @foreach (var project in projects)
         {
-            <li><strong>@project.ProjectTitle</strong> - @project.ProjectDescription</li>
+            <ProjectComponent Project="@project"></ProjectComponent>
         }
-    </ul>
+    </div>
+</BigTextSection>
+
+<JumbotronSection IsHeadingOne="false"
+                  IsLeft="true"
+                  CallToActionText="Feel free to reach out!"
+                  MainText="Based in Zagreb, Croatia"
+                  SubText="I am a professional who promotes remote work and has been working with clients remotely since 2013."
+                  ImageUrl="/img/Zagreb" />
+
+<BigTextSection BigText="Active in the development community" BackgroundColor="#2ab7ca">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Speaking</h3>
+            <ul>
+                @foreach (var talk in talks)
+                {
+                    <li><a href="@talk.Link" target="_blank"><strong>@talk.Event: @talk.Title</strong> (@talk.City, @talk.Year)</a></li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h3>Writing</h3>
+            <ul>
+                @foreach (var article in articles)
+                {
+                    <li><a href="@article.Link" target="_blank"><strong>@article.Title</strong> (@article.Platform)</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</BigTextSection>
+
+<BigTextSection BigText="I'd love to chat about your new project">
+    <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+            <p>Or you can reach me via:</p>
+
+        </div>
+    </div>
 </BigTextSection>
 
 
-
 @code {
-
+    private List<Talk> talks;
     private List<Project> projects;
+    private List<Article> articles;
+
     protected override async Task OnInitializedAsync()
     {
         projects = await _projectService.GetProjects();
+        talks = await _projectService.GetTalks();
+        articles = await _projectService.GetArticles();
     }
 }

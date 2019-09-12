@@ -9,5 +9,8 @@ namespace BlazorDemoPersonalPage.Services
     public interface IProjectService
     {
         Task<List<Project>> GetProjects();
+        Task<List<Article>> GetArticles();
+        Task<List<Talk>> GetTalks();
+
     }
 }
