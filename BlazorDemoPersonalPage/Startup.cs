@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlazorDemoPersonalPage.Services;
+using BlazorDemoPersonalPage.Models;
 
 namespace BlazorDemoPersonalPage
 {
@@ -29,6 +30,8 @@ namespace BlazorDemoPersonalPage
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<IProjectService, ProjectService>();
+            services.AddSingleton<IEmailService, EmailService>();
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
