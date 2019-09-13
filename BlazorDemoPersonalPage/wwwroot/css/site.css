@@ -1,7 +1,11 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 a, .btn-link {
@@ -118,6 +122,31 @@ section {
     justify-content: center;
     flex-direction: column;
     color: white;
+    padding: 6em 0;
+}
+
+section h1, section h2 {
+    font-size: 6em;
+    margin-bottom: 0.2em;
+}
+
+section h3 {
+    font-size: 3em;
+}
+
+section h4 {
+    font-size: 1.5em;
+}
+
+section p {
+    font-size: 1.5em;
+}
+
+.project-logo {
+    background: white;
+    padding: 5px;
+    width: 100%;
+    margin: 3em 0 1.5em 0;
 }
 
 

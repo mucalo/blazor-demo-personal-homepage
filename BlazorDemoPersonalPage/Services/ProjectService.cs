@@ -48,7 +48,8 @@ namespace BlazorDemoPersonalPage.Services
                 Client = "Siemens (Croatia)",
                 ProjectDescription = "Worked on several R&D projects connected to oil and gas industry. Under NDA.",
                 Image = "/img/Siemens.jpg",
-                Technologies = new List<string> { "#aspnetcore", "#angular" }
+                Technologies = new List<string> { "#aspnetcore", "#angular" },
+                Link = "https://www.intellegens.hr/Home/Articles/intellegens-working-with-siemens-croatia"
             });
             projects.Add(new Project
             {
@@ -65,7 +66,7 @@ namespace BlazorDemoPersonalPage.Services
                 Client = "Aircash",
                 ProjectDescription = "Helped build the prototype of the Aircash payment platform. Helped connect the system to initial partner solutions.",
                 Image = "/img/Aircash.jpg",
-                Link = "https://aircash.eu",
+                Link = "https://aircash.eu/en",
                 Technologies = new List<string>() { "#aspnetcore", "#angular", "#mssqlserver" }
             });
 
