@@ -1,4 +1,7 @@
-﻿<section class="jumbotron-fluid" style="background: url('@ImageUrl'); background-size: cover; min-height: 100vh; ">
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+<section class="jumbotron-fluid" style="background: url('@ImageUrl'); background-size: cover; min-height: 100vh; ">
     <div class="container">
         <div class="row">
             <div class="@_isLeftClasses">
@@ -64,8 +67,15 @@
         }
     }
 
-    private void scrollToContact()
+     private async Task scrollToContact()
     {
-        // Insert scrolling method here
+        await ScrollToElementId("contact-us");
+    }
+
+    private ValueTask<bool> ScrollToElementId(string elementId)
+    {
+        var array = new string[1];
+        array[0] = elementId;
+        return JSRuntime.InvokeAsync<bool>("scrollToElementId", array);
     }
 }
